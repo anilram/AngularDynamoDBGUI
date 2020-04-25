@@ -1,0 +1,42 @@
+.pos-rel{
+  position: relative;
+}
+
+
+
+.horizontal-scrollable > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-xs-2 {
+  display: inline-block;
+  float: none;
+}
+
+.col-xs-2 {
+  font-size: 24px;
+  padding-bottom: 20px;
+  padding-top: 18px;
+}
+
+.overflow-x-auto{
+  overflow-x: auto;
+}
+
+.table-fixed {
+  width: 97%;
+}
+.table-fixed {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+th:first-child, td:first-child
+{
+  position:sticky;
+  left:-1px;
+  background-color:grey;
+}
+

@@ -1,0 +1,57 @@
+<section class='pos-rel container-fluid'>
+  <div class="row">
+    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-9 mb-2">
+      <div class="justify-content-end">
+        <button (click)='showJsonView()' [ngClass]="{'btn btn-info mr-2':true, active:jsonView}"> Json View</button>
+        <button (click)='showTableView()' [ngClass]="{'btn btn-info mr-2':true, active:tableView}"> Table View</button>
+        <button (click)='showPlainView()' [ngClass]="{'btn btn-info':true, active:plainView}"> Plain View</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div *ngFor="let table of tables">
+        <!-- <span (click)="getAttributes($event,table)" [class]="table">+</span> --><a class="tableName" [routerLink]="['/tables', table]">{{table}}</a>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class='row'>
+        {{attributes | json}}
+      </div>
+      <div class='row table-editable' *ngIf="tableView" class="overflow-x-auto">
+      <table  class="table table-bordered table-responsive-md table-striped table-fixed">
+        <tr>
+          <th></th>
+          <th *ngFor="let column of cols ">
+            <span>{{column}}</span>
+          </th>
+        </tr>
+        <tr *ngFor="let item of items">
+          <td><button (click)='saveTable()' [ngClass]="{'btn btn-info':true, active:plainView}">Save</button></td>
+          <td contenteditable="true" class="" *ngFor="let attribute of item; ">
+            {{(attribute)}}</td>
+        </tr>
+      </table>
+      </div>
+      <div *ngIf="jsonView">
+        <div class="mb-2 float-left" *ngFor="let item of jsonItems">
+          <pre>{{item | json}}</pre>
+        </div>
+      </div>
+      <div *ngIf="plainView">
+        <div class="mb-2" *ngFor="let item of jsonItems">
+          {{item | json}}<br/>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <router-outlet>
+
+  </router-outlet>
+
+</section>

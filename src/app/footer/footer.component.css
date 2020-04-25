@@ -1,0 +1,10 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  width:99%;
+  background-color: #FFF;
+}
+
+.top-3em{
+  top:3em
+}
